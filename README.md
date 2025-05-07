@@ -12,30 +12,31 @@ Forked from [homoluctus/slatify](https://github.com/homoluctus/slatify). Thanks 
 - Notify the result of GitHub Actions
 
 # How to use
-First of all, you need to set GitHub secrets for SLACK_WEBHOOK that is Incoming Webhook URL.<br>
+First of all, you need to set GitHub secrets for MATTERMOST_WEBHOOK that is Incoming Webhook URL.<br>
 You can customize the following parameters:
 
-|with parameter|required/optional|description|
-|:--:|:--:|:--|
-|type|required|The result of GitHub Actions job<br>This parameter value must contain `success`, `fail` or `cancel`<br>We recommend using ${{ job.status }}|
-|job_name|required|Means slack notification title|
-|channel|required|Mattermost channel name|
-|icon_emoji|optional|Mattermost icon<br>default: octocat|
-|username|optional|Mattermost username<br>default: Github Actions|
-|url|optional|Mattermost Incoming Webhooks URL<br>Please specify this key or SLACK_WEBHOOK environment variable<br>※SLACK_WEBHOOK will be deprecated|
+|with parameter|required/optional| description                                                                                                                                 |
+|:--:|:--:|:--------------------------------------------------------------------------------------------------------------------------------------------|
+|type|required| The result of GitHub Actions job<br>This parameter value must contain `success`, `fail` or `cancel`<br>We recommend using ${{ job.status }} |
+|job_name|required| Means mattermost notification title                                                                                                         |
+|channel|required| Mattermost channel name                                                                                                                     |
+|icon_emoji|optional| Mattermost icon<br>default: octocat                                                                                                         |
+|username|optional| Mattermost username<br>default: Github Actions                                                                                              |
+|url|optional| Mattermost Incoming Webhooks URL<br>Please specify this key or MATTERMOST_WEBHOOK environment variable                                      |
 
 Please refer `action.yml` for more details.
 
 ## Example
 ```..github/workflows/main.yml
 - name: Mattermost Notification
-  uses: tferreira/matterfy@releases/v1
+  uses: satria-wardana/matter-notify@v2.0.0
   if: always()
   with:
     type: ${{ job.status }}
     job_name: '*Lint Check*'
     channel: 'random'
-    url: ${{ secrets.SLACK_WEBHOOK }}
+    url: ${{ secrets.MATTERMOST_WEBHOOK }}
+    mention: #mattermost username 
 ```
 
 # UI Examples 

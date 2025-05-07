@@ -1,6 +1,6 @@
 name: 'Matter Notify'
 description: 'Mattermost Notification for Github Actions'
-author: 'tferreira'
+author: 'satria-wardana'
 inputs:
   type:
     description: 'job status (success or failure)'
@@ -21,6 +21,9 @@ inputs:
     required: false
   url:
     description: 'mattermost incoming webhook url'
+    required: false
+  mention:
+    description: 'mattermost username'
     required: false
 runs:
   using: 'node12'
