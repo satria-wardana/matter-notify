@@ -26,7 +26,7 @@ inputs:
     description: 'mattermost username'
     required: false
 runs:
-  using: 'node22'
+  using: 'node24'
   main: 'lib/main.js'
 branding:
   icon: 'bell'
