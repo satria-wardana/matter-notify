@@ -2,3 +2,4 @@
 .config/
 .npm/
 .DS_Store
+.idea/
